@@ -3,8 +3,13 @@
 import argparse
 
 def find_max_profit(prices):
-  pass 
-
+  largestDifference = -999999
+  nextList = prices[1:]
+  for index, price in enumerate(prices):
+    for sellPrice in nextList[index:]:
+      if (sellPrice - price > largestDifference):
+        largestDifference = sellPrice - price  
+  return(int(largestDifference))
 
 if __name__ == '__main__':
   # You can test your implementation by running 
